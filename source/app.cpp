@@ -29,7 +29,7 @@ int main(int argc, char** argv){
     }
 
     // write the header to makefile
-    makeFile << "bin/makemake: bin/app.o ";
+    makeFile << "bin/build: bin/app.o ";
     for(int i=0; i<headerNames.size(); i++){
 
         // link all the object files of modules
@@ -41,7 +41,7 @@ int main(int argc, char** argv){
     for(int i=0; i<headerNames.size(); i++){
         makeFile << "bin/" << headerNames[i] << ".o "; 
     }
-    makeFile << " -o bin/makemake";
+    makeFile << " -o bin/build";
 
     // the rule which directly works on app.cpp -> app.o
     makeFile << "\n\nbin/app.o: source/app.cpp\n\tg++ --std=c++17 -c source/app.cpp -o bin/app.o";
